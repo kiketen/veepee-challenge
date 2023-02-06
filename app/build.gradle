@@ -10,6 +10,7 @@ localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
+    namespace 'com.vp.movies'
     defaultConfig {
         applicationId "com.vp.movies"
         minSdkVersion rootProject.minSdkVersion
@@ -62,7 +63,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
 
     //test
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

@@ -23,6 +23,7 @@ android {
             minifyEnabled true
         }
     }
+    namespace 'com.vp.daggeraddons'
 
 }
 
