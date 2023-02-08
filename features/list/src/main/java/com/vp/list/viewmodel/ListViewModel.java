@@ -3,6 +3,7 @@ package com.vp.list.viewmodel;
 import com.vp.list.model.ListItem;
 import com.vp.list.model.SearchResponse;
 import com.vp.list.service.SearchService;
+import com.wordchy.wordchain.word.core.SingleLiveEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,9 @@ import retrofit2.Response;
 
 public class ListViewModel extends ViewModel {
 
-    private MutableLiveData<SearchResult> liveData = new MutableLiveData<>();
+    private MutableLiveData<SearchResult> searchResultLiveData = new MutableLiveData<>();
+    private SingleLiveEvent<ListNavigation> navigatorLiveData = new SingleLiveEvent<>();
+
     private SearchService searchService;
 
     private String currentTitle = "";
@@ -31,7 +34,11 @@ public class ListViewModel extends ViewModel {
     }
 
     public LiveData<SearchResult> observeMovies() {
-        return liveData;
+        return searchResultLiveData;
+    }
+
+    public LiveData<ListNavigation> observeNavigator() {
+        return navigatorLiveData;
     }
 
     public void searchMoviesByTitle(@NonNull String title, int page) {
@@ -39,7 +46,7 @@ public class ListViewModel extends ViewModel {
         if (page == 1 && !title.equals(currentTitle)) {
             aggregatedItems.clear();
             currentTitle = title;
-            liveData.setValue(SearchResult.inProgress());
+            searchResultLiveData.setValue(SearchResult.inProgress());
         }
         searchService.search(title, page).enqueue(new Callback<SearchResponse>() {
             @Override
@@ -49,19 +56,23 @@ public class ListViewModel extends ViewModel {
 
                 if (result != null) {
                     aggregatedItems.addAll(result.getSearch());
-                    liveData.setValue(SearchResult.success(
+                    searchResultLiveData.setValue(SearchResult.success(
                             result.getSearch(),
                             result.getTotalResults()
                     ));
                 } else {
-                    liveData.setValue(SearchResult.error());
+                    searchResultLiveData.setValue(SearchResult.error());
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<SearchResponse> call, @NonNull Throwable t) {
-                liveData.setValue(SearchResult.error());
+                searchResultLiveData.setValue(SearchResult.error());
             }
         });
+    }
+
+    public void onItemClick(String imdbID) {
+        navigatorLiveData.setValue(new ListNavigation.Detail(imdbID));
     }
 }
