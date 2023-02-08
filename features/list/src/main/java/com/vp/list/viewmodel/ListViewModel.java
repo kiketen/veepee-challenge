@@ -61,12 +61,18 @@ public class ListViewModel extends ViewModel {
                             result.getTotalResults()
                     ));
                 } else {
-                    searchResultLiveData.setValue(SearchResult.error());
+                    handleError();
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<SearchResponse> call, @NonNull Throwable t) {
+                handleError();
+            }
+
+            private void handleError() {
+                aggregatedItems.clear();
+                currentTitle = null;
                 searchResultLiveData.setValue(SearchResult.error());
             }
         });
@@ -74,5 +80,9 @@ public class ListViewModel extends ViewModel {
 
     public void onItemClick(String imdbID) {
         navigatorLiveData.setValue(new ListNavigation.Detail(imdbID));
+    }
+
+    public void onRetryClick(String currentQuery) {
+        searchMoviesByTitle(currentQuery, 1);
     }
 }
