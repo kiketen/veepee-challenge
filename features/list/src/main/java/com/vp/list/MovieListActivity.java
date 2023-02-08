@@ -18,11 +18,13 @@ import dagger.android.HasAndroidInjector;
 public class MovieListActivity extends AppCompatActivity implements HasAndroidInjector {
 
     private static final String IS_SEARCH_VIEW_ICONIFIED = "is_search_view_iconified";
+    private static final String SEARCH_QUERY = "search_query";
 
     @Inject
     DispatchingAndroidInjector<Object> dispatchingObjectInjector;
     private SearchView searchView;
     private boolean searchViewExpanded = true;
+    private CharSequence searchQuery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MovieListActivity extends AppCompatActivity implements HasAndroidIn
                     .commit();
         } else {
             searchViewExpanded = savedInstanceState.getBoolean(IS_SEARCH_VIEW_ICONIFIED);
+            searchQuery = savedInstanceState.getCharSequence(SEARCH_QUERY);
         }
     }
 
@@ -62,7 +65,7 @@ public class MovieListActivity extends AppCompatActivity implements HasAndroidIn
                 return false;
             }
         });
-
+        searchView.setQuery(searchQuery, false);
         return true;
     }
 
@@ -70,6 +73,7 @@ public class MovieListActivity extends AppCompatActivity implements HasAndroidIn
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(IS_SEARCH_VIEW_ICONIFIED, searchView.isIconified());
+        outState.putCharSequence(SEARCH_QUERY, searchView.getQuery());
     }
 
     @Override
