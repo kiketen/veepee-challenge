@@ -16,6 +16,7 @@ android {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         buildConfigField "String", "API_KEY", localProperties['apiKey']
+        buildConfigField "String", "API_I", localProperties['apiI']
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
