@@ -53,6 +53,8 @@ public class ListViewModel extends ViewModel {
                             result.getSearch(),
                             result.getTotalResults()
                     ));
+                } else {
+                    liveData.setValue(SearchResult.error());
                 }
             }
 
