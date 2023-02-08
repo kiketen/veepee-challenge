@@ -1,16 +1,16 @@
 package com.vp.detail
 
+import android.os.Bundle
+import android.view.Menu
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.databinding.DataBindingUtil
-import android.os.Bundle
-import android.view.Menu
 import com.vp.detail.databinding.ActivityDetailBinding
 import com.vp.detail.viewmodel.DetailsViewModel
+import com.wordchy.wordchain.word.core.DETAIL_ID
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
-import kotlin.run
 
 class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
 
@@ -36,7 +36,7 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
     }
 
     override fun getMovieId(): String {
-        return intent?.data?.getQueryParameter("imdbID") ?: run {
+        return intent?.getStringExtra(DETAIL_ID) ?: run {
             throw IllegalStateException("You must provide movie id to display details")
         }
     }

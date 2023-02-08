@@ -16,7 +16,6 @@ android {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         buildConfigField "String", "API_KEY", localProperties['apiKey']
-        buildConfigField "String", "API_I", localProperties['apiI']
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -45,6 +44,7 @@ dependencies {
     implementation project(':features:detail')
     implementation project(':features:favorites')
     implementation project(':dagger.addons')
+    implementation project(':core')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
 

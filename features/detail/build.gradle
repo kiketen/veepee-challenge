@@ -37,6 +37,8 @@ android {
 
 dependencies {
     implementation project(':dagger.addons')
+    implementation project(':core')
+
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.8.0'
