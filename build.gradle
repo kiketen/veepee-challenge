@@ -2,15 +2,16 @@
 
 buildscript {
     ext {
-        androidPluginVersion = '4.2.2'
+        androidPluginVersion = '7.0.4'
         //sdk and tools
-        compileSdkVersion = 31
+        compileSdkVersion = 33
         minSdkVersion = 21
-        targetSdkVersion = 31
+        targetSdkVersion = 33
 
         //dependencies
         kotlin = '1.8.0'
-        supportLibraryVersion = '1.8.0'
+        supportLibraryVersion = '1.6.0'
+        recyclerViewLibraryVersion = '1.2.1'
         constraintLayout = '2.1.4'
         retrofit = '2.9.0'
         lifecycle = '2.2.0'
