@@ -1,9 +1,7 @@
 package com.vp.core.di
 
 import com.vp.core.data.AppDatabase
-import com.vp.core.data.favorites.FavoritesRepositoryImpl
-import com.vp.core.data.movies.MoviesDAO
-import com.vp.core.domain.FavoritesRepository
+import com.vp.core.data.movies.FavoritesDAO
 import com.vp.core.presentation.DefaultThreadScheduler
 import com.vp.core.presentation.ThreadScheduler
 import dagger.Module
@@ -14,16 +12,8 @@ import javax.inject.Singleton
 class CoreModule {
 
     @Provides
-    fun provideMoviesDAO(appDatabase: AppDatabase): MoviesDAO {
+    fun provideMoviesDAO(appDatabase: AppDatabase): FavoritesDAO {
         return appDatabase.moviesDAO()
-    }
-
-    @Singleton
-    @Provides
-    fun providesFavoritesRepository(
-            moviesDAO: MoviesDAO
-    ): FavoritesRepository {
-        return FavoritesRepositoryImpl(moviesDAO)
     }
 
     @Singleton

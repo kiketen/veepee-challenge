@@ -42,6 +42,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.8.0'
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin"
 
     //glide
     implementation "com.github.bumptech.glide:glide:$rootProject.glide"
