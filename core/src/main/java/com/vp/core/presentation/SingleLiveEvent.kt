@@ -1,4 +1,4 @@
-package com.wordchy.wordchain.word.core
+package com.vp.core.presentation
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

@@ -1,4 +1,4 @@
-package com.vp.detail
+package com.vp.detail.presentation
 
 import androidx.databinding.BindingAdapter
 import android.widget.ImageView

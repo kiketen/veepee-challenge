@@ -1,4 +1,4 @@
-package com.vp.detail.model
+package com.vp.detail.data.service
 
 import com.google.gson.annotations.SerializedName
 

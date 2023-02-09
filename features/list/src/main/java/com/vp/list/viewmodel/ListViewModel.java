@@ -1,9 +1,9 @@
 package com.vp.list.viewmodel;
 
+import com.vp.core.presentation.SingleLiveEvent;
 import com.vp.list.model.ListItem;
 import com.vp.list.model.SearchResponse;
 import com.vp.list.service.SearchService;
-import com.wordchy.wordchain.word.core.SingleLiveEvent;
 
 import java.util.ArrayList;
 import java.util.List;

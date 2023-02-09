@@ -1,6 +1,6 @@
 package com.vp.detail.di
 
-import com.vp.detail.DetailActivity
+import com.vp.detail.presentation.DetailActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

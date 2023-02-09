@@ -1,7 +1,9 @@
 package com.vp.movies.di
 
 import android.app.Application
+import com.vp.core.di.CoreModule
 import com.vp.detail.di.DetailActivityModule
+import com.vp.detail.di.DetailModule
 import com.vp.list.di.MovieListActivityModule
 import com.vp.movies.MoviesApplication
 import dagger.BindsInstance
@@ -10,7 +12,15 @@ import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidSupportInjectionModule::class, NetworkModule::class, MovieListActivityModule::class, DetailActivityModule::class])
+@Component(modules = [
+    AppModule::class,
+    AndroidSupportInjectionModule::class,
+    NetworkModule::class,
+    MovieListActivityModule::class,
+    DetailActivityModule::class,
+    CoreModule::class,
+    DetailModule::class
+])
 interface AppComponent {
 
     @Component.Builder

@@ -1,4 +1,4 @@
-package com.vp.detail
+package com.vp.detail.presentation
 
 import android.os.Bundle
 import android.view.Menu
@@ -6,9 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.vp.detail.R
 import com.vp.detail.databinding.ActivityDetailBinding
-import com.vp.detail.viewmodel.DetailsViewModel
-import com.wordchy.wordchain.word.core.DETAIL_ID
+import com.vp.core.presentation.DETAIL_ID
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package com.vp.detail.di;
 
-import com.vp.detail.service.DetailService;
+import com.vp.detail.data.service.DetailService;
 
 import dagger.Module;
 import dagger.Provides;

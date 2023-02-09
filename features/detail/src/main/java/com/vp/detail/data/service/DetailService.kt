@@ -1,6 +1,5 @@
-package com.vp.detail.service
+package com.vp.detail.data.service
 
-import com.vp.detail.model.MovieDetail
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

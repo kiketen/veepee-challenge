@@ -1,4 +1,4 @@
-package com.wordchy.wordchain.word.core
+package com.vp.core.presentation
 
 
 const val DEEPLINK_DETAIL = "app://movies/detail"

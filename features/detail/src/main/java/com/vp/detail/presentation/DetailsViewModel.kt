@@ -1,11 +1,10 @@
-package com.vp.detail.viewmodel
+package com.vp.detail.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.vp.detail.DetailActivity
-import com.vp.detail.model.MovieDetail
-import com.vp.detail.service.DetailService
+import com.vp.detail.data.service.MovieDetail
+import com.vp.detail.data.service.DetailService
 import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject
