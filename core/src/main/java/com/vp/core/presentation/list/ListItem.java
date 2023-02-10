@@ -8,6 +8,7 @@ public class ListItem {
     private String title;
     @SerializedName("Year")
     private String year;
+    @SerializedName("imdbID")
     private String imdbID;
     @SerializedName("Poster")
     private String poster;
