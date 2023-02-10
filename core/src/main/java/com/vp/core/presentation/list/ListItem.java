@@ -1,8 +1,9 @@
-package com.vp.list.model;
+package com.vp.core.presentation.list;
 
 import com.google.gson.annotations.SerializedName;
 
 public class ListItem {
+
     @SerializedName("Title")
     private String title;
     @SerializedName("Year")
@@ -11,19 +12,19 @@ public class ListItem {
     @SerializedName("Poster")
     private String poster;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
     public String getImdbID() {
         return imdbID;
     }
 
+    public void setImdbID(String value) {
+        imdbID = value;
+    }
+
     public String getPoster() {
         return poster;
+    }
+
+    public void setPoster(String value) {
+        poster = value;
     }
 }

@@ -2,6 +2,7 @@ package com.vp.list;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.vp.core.presentation.list.ListAdapter;
 import com.vp.list.viewmodel.ListNavigation;
 import com.vp.list.viewmodel.ListViewModel;
 import com.vp.list.viewmodel.SearchResult;

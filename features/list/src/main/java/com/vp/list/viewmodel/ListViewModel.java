@@ -1,7 +1,7 @@
 package com.vp.list.viewmodel;
 
 import com.vp.core.presentation.SingleLiveEvent;
-import com.vp.list.model.ListItem;
+import com.vp.core.presentation.list.ListItem;
 import com.vp.list.model.SearchResponse;
 import com.vp.list.service.SearchService;
 

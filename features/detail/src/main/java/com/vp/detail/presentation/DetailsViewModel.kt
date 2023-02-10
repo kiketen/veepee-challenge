@@ -25,6 +25,7 @@ class DetailsViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         detailsDisposable.clear()
+        saveFavoriteDisposable.clear()
     }
 
     fun details(): LiveData<MovieDetail> = details

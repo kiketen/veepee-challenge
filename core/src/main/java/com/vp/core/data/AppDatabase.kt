@@ -13,5 +13,5 @@ import com.vp.core.data.movies.MovieDAOModel
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun moviesDAO(): FavoritesDAO
+    abstract fun favoritesDAO(): FavoritesDAO
 }

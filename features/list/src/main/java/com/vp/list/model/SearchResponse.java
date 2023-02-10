@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
+import com.vp.core.presentation.list.ListItem;
+
 import java.util.List;
 
 import static java.util.Collections.emptyList;

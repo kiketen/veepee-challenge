@@ -13,6 +13,10 @@ interface FavoritesDAO {
     fun get(id: String): MovieDAOModel?
 
     @Transaction
+    @Query("SELECT * FROM MovieDAOModel")
+    fun getAll(): List<MovieDAOModel>
+
+    @Transaction
     @Query("DELETE FROM MovieDAOModel WHERE id = :id")
     fun delete(id: String)
 }

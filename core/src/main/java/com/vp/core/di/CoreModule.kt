@@ -13,7 +13,7 @@ class CoreModule {
 
     @Provides
     fun provideMoviesDAO(appDatabase: AppDatabase): FavoritesDAO {
-        return appDatabase.moviesDAO()
+        return appDatabase.favoritesDAO()
     }
 
     @Singleton

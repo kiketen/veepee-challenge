@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -9,6 +12,10 @@ android {
 
         testInstrumentationRunner "com.android.support.test.runner.AndroidJUnitRunner"
 
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -22,15 +29,41 @@ android {
     }
     namespace 'com.vp.favorites'
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':dagger.addons')
+    implementation project(':core')
 
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.activity:activity-ktx:1.6.1'
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin"
 
-    //support
+    //glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glide"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glide"
+
+    //dagger
+    implementation "com.google.dagger:dagger:$rootProject.dagger"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger"
+    implementation "com.google.dagger:dagger-android:$rootProject.dagger"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger"
+
+    //architecture components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle"
+
+    //support library
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewLibraryVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
+    implementation "com.google.android.material:material:$rootProject.supportLibraryVersion"
 
     //tests
     testImplementation 'junit:junit:4.13.2'

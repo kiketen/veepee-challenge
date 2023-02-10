@@ -4,6 +4,8 @@ import android.app.Application
 import com.vp.core.di.CoreModule
 import com.vp.detail.di.DetailActivityModule
 import com.vp.detail.di.DetailModule
+import com.vp.favorites.di.FavoritesActivityModule
+import com.vp.favorites.di.FavoritesModule
 import com.vp.list.di.MovieListActivityModule
 import com.vp.movies.MoviesApplication
 import dagger.BindsInstance
@@ -18,8 +20,10 @@ import javax.inject.Singleton
     NetworkModule::class,
     MovieListActivityModule::class,
     DetailActivityModule::class,
+    FavoritesActivityModule::class,
     CoreModule::class,
-    DetailModule::class
+    DetailModule::class,
+    FavoritesModule::class
 ])
 interface AppComponent {
 

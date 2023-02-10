@@ -33,10 +33,12 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.detail_menu, menu)
         detailViewModel.details().observe(this) {
-            supportActionBar?.title = it.title
-            menu?.findItem(R.id.star)?.apply {
-                isChecked = it.isFavorite
-                icon = ContextCompat.getDrawable(this@DetailActivity, getMenuItemIcon(it.isFavorite))
+            it?.let {
+                supportActionBar?.title = it.title
+                menu?.findItem(R.id.star)?.apply {
+                    isChecked = it.isFavorite
+                    icon = ContextCompat.getDrawable(this@DetailActivity, getMenuItemIcon(it.isFavorite))
+                }
             }
         }
         return true

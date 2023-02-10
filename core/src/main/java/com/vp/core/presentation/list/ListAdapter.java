@@ -1,19 +1,22 @@
-package com.vp.list;
+package com.vp.core.presentation.list;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
+import com.vp.core.presentation.GlideApp;
+import com.wordchy.wordchain.word.core.R;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.vp.list.model.ListItem;
-
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
+
     private static final String NO_IMAGE = "N/A";
     private List<ListItem> listItems = Collections.emptyList();
     private OnItemClickListener EMPTY_ON_ITEM_CLICK_LISTENER = imdbID -> {
@@ -66,6 +69,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         ImageView image;
 
         ListViewHolder(View itemView) {
@@ -80,7 +84,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         }
     }
 
-    interface OnItemClickListener {
+    public interface OnItemClickListener {
+
         void onItemClick(String imdbID);
     }
 }
