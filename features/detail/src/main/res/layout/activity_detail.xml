@@ -5,19 +5,21 @@
 
     <data>
 
-        <import type="com.vp.detail.viewmodel.DetailsViewModel.LoadingState" />
+        <import type="com.vp.detail.presentation.DetailsViewModel" />
+
+        <import type="com.vp.detail.presentation.DetailsViewModel.LoadingState" />
 
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="com.vp.detail.viewmodel.DetailsViewModel" />
+            type="com.vp.detail.presentation.DetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailActivity">
+        tools:context=".presentation.DetailActivity">
 
         <ImageView
             android:id="@+id/poster"

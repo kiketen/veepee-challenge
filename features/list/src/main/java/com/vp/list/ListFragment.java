@@ -2,6 +2,7 @@ package com.vp.list;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.vp.core.presentation.list.ListAdapter;
 import com.vp.list.viewmodel.ListNavigation;
 import com.vp.list.viewmodel.ListViewModel;
 import com.vp.list.viewmodel.SearchResult;
@@ -29,9 +30,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import dagger.android.support.AndroidSupportInjection;
 
-import static com.wordchy.wordchain.word.core.RouteConstantsKt.DEEPLINK_DETAIL;
-import static com.wordchy.wordchain.word.core.RouteConstantsKt.DEEPLINK_FAVORITES;
-import static com.wordchy.wordchain.word.core.RouteConstantsKt.DETAIL_ID;
+import static com.vp.core.presentation.RouteConstantsKt.DEEPLINK_DETAIL;
+import static com.vp.core.presentation.RouteConstantsKt.DEEPLINK_FAVORITES;
+import static com.vp.core.presentation.RouteConstantsKt.DETAIL_ID;
 
 public class ListFragment extends Fragment implements GridPagingScrollListener.LoadMoreItemsListener, ListAdapter.OnItemClickListener {
 

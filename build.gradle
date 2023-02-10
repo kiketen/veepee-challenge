@@ -15,10 +15,14 @@ buildscript {
         constraintLayout = '2.1.4'
         retrofit = '2.9.0'
         lifecycle = '2.2.0'
+        room = '2.5.0'
         gson = '2.10.1'
         dagger = '2.44.2'
         glide = '4.10.0'
         okhttp = '4.10.0'
+        json = '1.4.1'
+        rxKotlin = '2.4.0'
+        rxJavaAndroid = '2.1.1'
     }
 
     repositories {

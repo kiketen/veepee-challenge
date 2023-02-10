@@ -47,6 +47,8 @@ dependencies {
     implementation project(':core')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
+    implementation "androidx.room:room-runtime:$rootProject.room"
+    kapt "androidx.room:room-compiler:$rootProject.room"
 
     //support
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
@@ -62,6 +64,8 @@ dependencies {
     //api
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit"
+
 
     //test
     testImplementation 'junit:junit:4.13.2'

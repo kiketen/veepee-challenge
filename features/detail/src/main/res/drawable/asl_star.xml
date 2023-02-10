@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/brush_on"
+        android:drawable="@drawable/ic_star_on"
+        android:checked="true" />
+
+    <item
+        android:id="@+id/brush_off"
+        android:drawable="@drawable/ic_star_off"
+        android:checked="false" />
+
+</animated-selector>
