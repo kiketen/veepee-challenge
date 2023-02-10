@@ -3,8 +3,8 @@ package com.vp.detail.presentation
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.vp.core.presentation.DETAIL_ID
@@ -26,15 +26,19 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
         detailViewModel = ViewModelProviders.of(this, factory).get(DetailsViewModel::class.java)
         binding.viewModel = detailViewModel
         queryProvider = this
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         detailViewModel.fetchDetails()
-        detailViewModel.title().observe(this, Observer {
-            supportActionBar?.title = it
-        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.detail_menu, menu)
+        detailViewModel.details().observe(this) {
+            supportActionBar?.title = it.title
+            menu?.findItem(R.id.star)?.apply {
+                isChecked = it.isFavorite
+                icon = ContextCompat.getDrawable(this@DetailActivity, getMenuItemIcon(it.isFavorite))
+            }
+        }
         return true
     }
 
@@ -51,6 +55,14 @@ class DetailActivity : DaggerAppCompatActivity(), QueryProvider {
     override fun getMovieId(): String {
         return intent?.getStringExtra(DETAIL_ID) ?: run {
             throw IllegalStateException("You must provide movie id to display details")
+        }
+    }
+
+    private fun getMenuItemIcon(isChecked: Boolean): Int {
+        return if (isChecked) {
+            R.drawable.ic_star_on
+        } else {
+            R.drawable.ic_star_off
         }
     }
 

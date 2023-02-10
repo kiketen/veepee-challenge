@@ -17,17 +17,15 @@ class DetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val details: MutableLiveData<MovieDetail> = MutableLiveData()
-    private val title: MutableLiveData<String> = MutableLiveData()
     private val loadingState: MutableLiveData<LoadingState> = MutableLiveData()
 
     private val detailsDisposable: CompositeDisposable = CompositeDisposable()
+    private val saveFavoriteDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun onCleared() {
         super.onCleared()
         detailsDisposable.clear()
     }
-
-    fun title(): LiveData<String> = title
 
     fun details(): LiveData<MovieDetail> = details
 
@@ -42,7 +40,6 @@ class DetailsViewModel @Inject constructor(
                         .subscribeOn(threadScheduler.getIoThread())
                         .subscribe({
                             details.postValue(it)
-                            title.postValue(it.title)
                             loadingState.value = LoadingState.LOADED
                         }, {
                             details.postValue(null)
@@ -52,7 +49,19 @@ class DetailsViewModel @Inject constructor(
     }
 
     fun onFavoriteClick(isChecked: Boolean) {
-        details.value = details.value?.copy()
+        val isFavorite = !isChecked
+        details.value = details.value?.copy(isFavorite = isFavorite)
+        details.value?.let {
+            saveFavoriteDisposable.add(
+                    setFavoriteMovie(
+                            movieDetail = it,
+                            isFavorite = isFavorite
+                    )
+                            .observeOn(threadScheduler.getMainThread())
+                            .subscribeOn(threadScheduler.getIoThread())
+                            .subscribe({}, {})
+            )
+        }
     }
 
     enum class LoadingState {

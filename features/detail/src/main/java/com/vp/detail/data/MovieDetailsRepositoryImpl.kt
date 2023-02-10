@@ -18,7 +18,15 @@ class MovieDetailsRepositoryImpl(
         }
     }
 
-    override fun saveFavorite(movieDetail: MovieDetail) {
-        favoritesDAO.set(movieDetail.toDAO())
+    override fun saveFavorite(movieDetail: MovieDetail): Observable<Boolean> {
+        return Observable.create {
+            favoritesDAO.set(movieDetail.toDAO())
+        }
+    }
+
+    override fun deleteFavorite(id: String): Observable<Boolean> {
+        return Observable.create {
+            favoritesDAO.delete(id)
+        }
     }
 }
